@@ -8,7 +8,9 @@ import NavBar from './component/NavBar';
 import Sign from './component/signin';
 import Page404 from './component/Page404';
 import User from './component/User';
+
 import './App.css'
+import work from './component/work';
 
 
 
@@ -31,6 +33,7 @@ function App() {
     <Route path="/*" element={<Navigate to="/About"/>}/>
 
     <Route path="/user/:name" element={<User/>}/>
+    <Route path="/work" element={<work/>}/>
 
     
     
@@ -45,3 +48,31 @@ function App() {
 }
 
 export default App
+
+
+
+// hook 
+//  use state
+// use nav
+// use effect
+// use memo
+// use callback
+// 
+
+// use selector
+
+// uses dispath
+
+
+
+
+// custom hook
+// redux toolkit
+// redux toolkit vs redux vs contact api
+
+//  searching sorting lazy loading
+// 
+
+
+// youtube project clone
+// 
