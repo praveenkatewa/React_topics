@@ -1,16 +1,21 @@
 
-import { BrowserRouter ,Route,Routes} from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import About from "./components/About"
 import Contact from "./components/Contact"
 import Header from "./components/Header"
 import Home from "./components/Home"
 import Calculator from "./components/calculator"
+import Form from "./components/Form"
+import Signup from "./components/Signup"
+
+
 
 function App() {
   
 
   return (
-    <>
+    <BrowserRouter>
+
     <Header/>
      
         <Routes>
@@ -19,14 +24,19 @@ function App() {
           <Route path="/Contact" element={<Contact/>}></Route>
           <Route path="/Header" element={<Header/>}></Route>
           <Route path="/cal" element={<Calculator/>}></Route>
+          <Route path="/form" element={<Form/>}></Route>
+          <Route path="/Signup" element={<Signup/>}></Route>
+          
+         
 
 
 
         </Routes>
      
+        </BrowserRouter>
   
       
-    </>
+    
   )
 }
 

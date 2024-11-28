@@ -11,6 +11,9 @@ function Header() {
       <Link to={"/about"}>About</Link>
       <Link to={"/Contact"}>Contact</Link>
       <Link to={"/Cal"}>Calculator</Link>
+      <Link to={"/form"}>Form</Link>
+      <Link to={"/Signup"}>Signup</Link>
+     
     </div>
   )
 }
