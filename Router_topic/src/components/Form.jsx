@@ -16,7 +16,7 @@ const Form = () => {
             };
     
     // to store data in local data
-    localStorage.setItem("formData", JSON.stringify(data));
+    localStorage.setItem("data", JSON.stringify(data));
     console.log(data);
 
     // localStorage.setItem("meraformkadata",JSON.stringify({
