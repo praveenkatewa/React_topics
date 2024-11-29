@@ -23,11 +23,12 @@ const Login = () => {
  if (storedUser.email === email && storedUser.password === password) {
            
             alert('Login successful!');
+            navigate('/Done');
           } else {
             alert('Email or password is incorrect.');
           }
          
-          navigate('/Done');
+          // navigate('/Done');
            
   };
   

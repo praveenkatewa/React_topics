@@ -8,6 +8,7 @@ import NavBar from './component/NavBar';
 import Sign from './component/signin';
 import Page404 from './component/Page404';
 import User from './component/User';
+import Dropdown from './Droupdown';
 
 import './App.css'
 import work from './component/work';
@@ -34,6 +35,8 @@ function App() {
 
     <Route path="/user/:name" element={<User/>}/>
     <Route path="/work" element={<work/>}/>
+    <Route path="/Dropdown" element={<Dropdown/>}/>
+
 
     
     
