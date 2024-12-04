@@ -15,7 +15,10 @@ import work from './component/work';
 import APiFetch from './component/Api';
 
 import APiFetch2 from './component/Api2';
-import APiFetch3 from './component/Api3';
+// import APiFetch3 from './component/Api3';
+import APiFetch4 from './component/api4';
+import Fetch3 from './component/Api3'
+import Api5 from './component/api5';
 
 
 
@@ -42,7 +45,9 @@ function App() {
     <Route path="/Dropdown" element={<Dropdown/>}/>
     <Route path="/APiFetch" element={<APiFetch/>}/>
     <Route path="/Api2" element={<APiFetch2/>}/>
-    <Route path="/Api3" element={<APiFetch3/>}/>
+    <Route path="/Api3" element={<Fetch3/>}/>
+    <Route path="/Api4" element={<APiFetch4/>}/>
+    <Route path="/Api5" element={<Api5/>}/>
 
 
     

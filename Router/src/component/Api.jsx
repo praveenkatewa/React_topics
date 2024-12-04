@@ -39,6 +39,8 @@ console.log(`>>>>>>>>loading>>>>>>>>`,loading);
                   <p className="card-text">Category: {item.category}</p>
                   <p className="card-text">Price: {item.price}</p>
                   <p className="card-text">Rating: {item.rating.count}</p>
+
+                  
                 </div>
               </div>
             </div>
