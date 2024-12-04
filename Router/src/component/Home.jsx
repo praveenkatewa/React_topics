@@ -18,6 +18,9 @@
   <button onClick={()=>navToPage('/About')}>go to about page</button><br/>
   <button onClick={()=>navToPage('/Sign')}>go to signin page </button>
 
+  <Link to="/APiFetch">APiFetch</Link>
+  <Link to="/Api2">APiFetch2 </Link>
+
 
  
 

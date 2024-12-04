@@ -12,6 +12,10 @@ import Dropdown from './Droupdown';
 
 import './App.css'
 import work from './component/work';
+import APiFetch from './component/Api';
+
+import APiFetch2 from './component/Api2';
+import APiFetch3 from './component/Api3';
 
 
 
@@ -36,6 +40,9 @@ function App() {
     <Route path="/user/:name" element={<User/>}/>
     <Route path="/work" element={<work/>}/>
     <Route path="/Dropdown" element={<Dropdown/>}/>
+    <Route path="/APiFetch" element={<APiFetch/>}/>
+    <Route path="/Api2" element={<APiFetch2/>}/>
+    <Route path="/Api3" element={<APiFetch3/>}/>
 
 
     
