@@ -1,9 +1,8 @@
-import React,{useState,useEffect} from 'react'
 import abc from 'axios';
-import 'bootstrap/dist/css/bootstrap.css'; 
-import Modal from 'react-bootstrap/Modal'; 
-import Button from 'react-bootstrap/Button'; 
-import { BsSearch } from 'react-icons/bs';
+import 'bootstrap/dist/css/bootstrap.css';
+import React, { useEffect, useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+
 
 
 
@@ -14,7 +13,7 @@ const ApiProductViews = () => {
 
   const[selectedRating,setSelectedRating]=useState(null);
 
-  const[search,setSearch]=useState();
+  const[search,setSearch]=useState("");
 
 
   useEffect(()=>{
@@ -30,18 +29,8 @@ const ApiProductViews = () => {
     setData(result.data);
   };
 
-  function handleSearchClick(){
-    if(search ===""){setData; return;}
-    const filter=setData.filter((item)=>{
-      if (item.toLowerCase()
-        .includes(search.toLowerCase())) { return item; }
 
-
-    })
-    setData(filter);
-  }
-
-  const update =()=>{
+  const update =async()=>{
     setLoading(!loading);
   };
 
@@ -67,6 +56,10 @@ const Rating= async (id) =>{
   
   };
   // console.log(selectedItem?.id);
+
+  const filteredData = data.filter(item =>
+    item.title.toLowerCase().includes(search.toLowerCase())
+  );
   
 
 
@@ -75,8 +68,9 @@ const Rating= async (id) =>{
   return (
     <div>
     <div>
-    <input type='text' placeholder='search' /> 
-    <BsSearch onClick={handleSearchClick} />
+    <input type='text' placeholder='search' value={search}
+    onChange={(e)=>setSearch(e.target.value)} /> 
+    
 
     </div>
    
@@ -86,7 +80,8 @@ const Rating= async (id) =>{
     
     <h2>product list</h2>
 
-    {data && data.map((item)=><div key={item.id}>
+    {  loading ? (<p>loading..</p>):(
+      data && filteredData.map((item)=><div key={item.id}>
     <div >
       <img src={item.image} alt={item.title}/>
     </div>
@@ -98,7 +93,7 @@ const Rating= async (id) =>{
 
 
 
-    </div>) }
+    </div>)) }
 
 
     {selectedItem && (
