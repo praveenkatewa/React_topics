@@ -21,6 +21,12 @@ const Api5 = () => {
   const load =async() =>{
     setLoading(!loading)
   }
+
+  const details=async(id)=>{
+    console.log(`User ID: ${id}`);
+    
+
+  }
   
   return (
   <div>
@@ -34,6 +40,8 @@ const Api5 = () => {
           <p>Age: {user.age}</p>
           <p>Gender: {user.gender}</p>
           <p>Address: {user.address.address}, {user.address.city}</p>
+
+          <button onClick={() => details(user.id)}>Item Details</button>
       
     </div>
     )}

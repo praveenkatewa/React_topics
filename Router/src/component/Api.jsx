@@ -22,6 +22,15 @@ console.log(`>>>>>>>>loading>>>>>>>>`,loading);
     setLoading(!loading)
  }
 
+ const details=async(id)=>{
+  console.log(`User ID: ${id}`);
+  const result=await abc.get('https://fakestoreapi.com/products/${id}')
+  console.log(`apistore`,result.data)
+  
+
+}
+
+
 
 
     return (
@@ -39,6 +48,11 @@ console.log(`>>>>>>>>loading>>>>>>>>`,loading);
                   <p className="card-text">Category: {item.category}</p>
                   <p className="card-text">Price: {item.price}</p>
                   <p className="card-text">Rating: {item.rating.count}</p>
+
+
+                  <button onClick={() => details(item.id)}>Item Details</button>
+                  
+                  <button onClick={() => details(item.id)}>view details</button>
 
                   
                 </div>

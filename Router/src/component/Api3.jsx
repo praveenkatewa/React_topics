@@ -22,6 +22,8 @@ const Fetch3 = () => {
   }
 
   
+
+  
   return (
     <div>
          <button onClick={updateData}>click me </button>
