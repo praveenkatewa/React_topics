@@ -118,9 +118,7 @@ const Rating= async (id) =>{
         </Modal.Body> 
         <Modal.Footer> 
           
-        <button type="button" className="btn btn-secondary" onClick={closeModal}>
-                  Close
-                </button>
+        <button type="button" className="btn btn-secondary" onClick={closeModal}> Close </button>
                 <button  type="button" className="btn btn-danger" onClick={() => Rating(selectedItem.id)}>Rating</button>
         </Modal.Footer> 
       </Modal.Dialog> 
