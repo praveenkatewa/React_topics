@@ -2,9 +2,8 @@ import abc from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
-
-
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const ApiProductViews = () => {
   const [data,setData]=useState([]);
@@ -83,7 +82,17 @@ const Rating= async (id) =>{
     {  loading ? (<p>loading..</p>):(
       data && filteredData.map((item)=><div key={item.id}>
     <div >
-      <img src={item.image} alt={item.title}/>
+     <LazyLoadImage
+        src={item.image}
+        effect="blur"
+    wrapperProps={{
+        
+        style: {transitionDelay: "2s"},
+    }}
+          /> 
+
+
+      {/* <img src={item.image} alt={item.title}/> */}
     </div>
     <h5>{item.title}</h5>
     <p>Category:{item.category}</p>
@@ -108,6 +117,14 @@ const Rating= async (id) =>{
         </Modal.Header> 
         <Modal.Body> 
          <div>
+         {/* <LazyLoadImage
+        src={selectedItem.image}
+        effect="blur"
+    wrapperProps={{
+        // If you need to, you can tweak the effect transition using the wrapper style.
+        style: {transitionDelay: "2s"},
+    }}
+         /> */}
          <img src={selectedItem.image} alt={selectedItem.title} className="img-fluid mb-3" />
          <p>Category: {selectedItem.category}</p>
                 <p>Price: ${selectedItem.price}</p>

@@ -21,7 +21,9 @@ import Fetch3 from './component/Api3'
 import Api5 from './component/api5';
 import APiFetchProduct from './component/productapi';
 import APiProductView from './component/ApiProductViews';
-import Apitest from './component/Apitest'
+import Apitest from './component/Apitest';
+import Moment from './component/moment';
+import  LazyLoading from './component/LazyLoading'
 
 
 
@@ -54,6 +56,10 @@ function App() {
     <Route path="/Productapi" element={<APiFetchProduct/>}/>
     <Route path="/ApiProductview" element={<APiProductView/>}/>
     <Route path="/ApiFetchtest" element={<Apitest/>}/>
+
+    <Route path="/moment" element={<Moment/>}/>
+
+    <Route path="/ LazyLoading" element={<LazyLoading/>}/>
 
 
     

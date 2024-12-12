@@ -28,6 +28,8 @@
   <Link to="/Api3">APiFetch3 </Link>
   <Link to="/Api5">APiFetch5 </Link>
   <Link to="/ApiProductview">APiproduct </Link>
+  <Link to="/moment">moment</Link>
+  <Link to="/ LazyLoading"> LazyLoading</Link>
 
 
  
