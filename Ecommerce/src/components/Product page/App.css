@@ -1,0 +1,75 @@
+/* General Layout Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Row Layout */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Sort and Filter Panel (Left) */
+.filter-panel {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  position: sticky;
+  top: 0;
+  height: 100vh; /* Full height */
+  overflow-y: auto; /* Allows scrolling if content overflows */
+}
+
+/* Product Cards */
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Images */
+.product-image {
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Modal Image */
+.product-modal-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* Button Styles */
+button {
+  min-width: 150px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  /* Stack columns vertically on small screens */
+  .row {
+    flex-direction: column;
+  }
+
+  .filter-panel {
+    height: auto; /* Allow height to adjust */
+    position: relative; /* Disable sticky behavior on small screens */
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .product-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
