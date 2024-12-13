@@ -8,7 +8,6 @@ const Login = () => {
         const [email,setEmail]=useState("");
         const[password,setPassword]=useState("");
         const navigate = useNavigate();
-
        
         const storedUser = JSON.parse(localStorage.getItem('data'));
 
@@ -28,7 +27,7 @@ const Login = () => {
             alert('Email or password is incorrect.');
           }
          
-          // navigate('/Done');
+         
            
   };
   

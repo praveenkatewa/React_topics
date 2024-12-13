@@ -130,11 +130,11 @@ const APiFetchProduct = () => {
         </Col>
       </Row>
     </Container>
-    
+
       <Container className="mt-4">
         <h2 className="text-center">Product List</h2>
         
-        {/* Search and Filter Section (Center of page) */}
+     
         <div className="d-flex justify-content-center mb-4">
           <SearchFilter searchCriteria={searchCriteria} setSearchCriteria={setSearchCriteria} />
         </div>
