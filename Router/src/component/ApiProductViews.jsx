@@ -184,3 +184,10 @@ const Rating= async (id) =>{
 }
 
 export default ApiProductViews
+
+
+
+
+
+
+

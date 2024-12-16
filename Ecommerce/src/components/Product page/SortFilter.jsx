@@ -44,6 +44,7 @@ const SortAndFilter = ({ priceRange, setPriceRange, resetFilters }) => {
             name="priceRange"
           />
         </div>
+        
 
         <Button variant="outline-secondary" onClick={resetFilters} className="w-100 mt-4">
           Clear Filters

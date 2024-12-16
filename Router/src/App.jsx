@@ -24,6 +24,8 @@ import APiProductView from './component/ApiProductViews';
 import Apitest from './component/Apitest';
 import Moment from './component/moment';
 import  LazyLoading from './component/LazyLoading'
+import Todo from './component/Todo';
+import  Exercises from './component/Youtube';
 
 
 
@@ -56,6 +58,8 @@ function App() {
     <Route path="/Productapi" element={<APiFetchProduct/>}/>
     <Route path="/ApiProductview" element={<APiProductView/>}/>
     <Route path="/ApiFetchtest" element={<Apitest/>}/>
+    <Route path="/Todo" element={<Todo/>}/>
+    <Route path="/Exercises" element={<Exercises/>}/>
 
     <Route path="/moment" element={<Moment/>}/>
 
