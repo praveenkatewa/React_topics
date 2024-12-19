@@ -25,15 +25,28 @@ import Apitest from './component/Apitest';
 import Moment from './component/moment';
 import  LazyLoading from './component/LazyLoading'
 import Todo from './component/Todo';
-import  Exercises from './component/Youtube';
+// import  Exercises from './component/Youtube';
+
+import  useDarkMode from './component/useDarkMode';
 
 
 
 function App() {
 
+  const [isDarkMode, toggleDarkMode] = useDarkMode();
+
 
   return (
     <>
+
+<div>
+      <h1>{isDarkMode ? 'Dark Mode' : 'Light Mode'}</h1>
+      <button onClick={toggleDarkMode}>
+        Toggle to {isDarkMode ? 'Light' : 'Dark'} Mode
+      </button>
+    </div>
+
+
     <BrowserRouter>
     <NavBar/>
    
@@ -59,9 +72,11 @@ function App() {
     <Route path="/ApiProductview" element={<APiProductView/>}/>
     <Route path="/ApiFetchtest" element={<Apitest/>}/>
     <Route path="/Todo" element={<Todo/>}/>
-    <Route path="/Exercises" element={<Exercises/>}/>
+    {/* <Route path="/Exercises" element={<Exercises/>}/> */}
 
     <Route path="/moment" element={<Moment/>}/>
+    
+    <Route path="/useDarkMode" element={<useDarkMode/>}/>
 
     <Route path="/ LazyLoading" element={<LazyLoading/>}/>
 

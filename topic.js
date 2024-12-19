@@ -19,13 +19,28 @@
 // console.log("time:", now);
 
 
-let a = 10;
-let b = 20;
+let a = 5;
+let b= 6;
+let c=0;
+a=c;
+b=a;
+c=b;
+console.log(a)
+console.log(b)
 
 
-a = a + b; 
-b = a - b; 
-a = a - b; 
 
-console.log("a =", a); 
-console.log("b =", b); 
+
+
+
+
+
+// a = a + b; 
+// console.log(a)
+// b = a - b; 
+// console.log(b)
+// a = a - b; 
+// console.log(a)
+
+// console.log("a =", a); 
+// console.log("b =", b); 

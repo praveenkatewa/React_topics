@@ -7,6 +7,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import './App.css';
 import SearchFilter from './SearchFilter';  
 import SortAndFilter from './SortFilter';  
+import { FaUserCircle } from "react-icons/fa";
 
 import moment from 'moment'; 
 
