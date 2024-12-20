@@ -28,6 +28,7 @@ import Todo from './component/Todo';
 // import  Exercises from './component/Youtube';
 
 import  useDarkMode from './component/useDarkMode';
+import Dark from './component/Dark';
 
 
 
@@ -45,6 +46,7 @@ function App() {
         Toggle to {isDarkMode ? 'Light' : 'Dark'} Mode
       </button>
     </div>
+    <Dark/>
 
 
     <BrowserRouter>

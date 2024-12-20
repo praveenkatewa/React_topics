@@ -7,6 +7,7 @@ import Home from "./components/Home"
 import Calculator from "./components/calculator"
 import Form from "./components/Form"
 import Signup from "./components/Signup"
+import DisplayToggleComponent  from './components/DisplayToggleComponent'
 
 
 
@@ -14,6 +15,12 @@ function App() {
   
 
   return (
+    <>
+<div>
+     
+      <DisplayToggleComponent />
+    </div>
+
     <BrowserRouter>
 
     <Header/>
@@ -35,7 +42,7 @@ function App() {
      
         </BrowserRouter>
   
-      
+        </>
     
   )
 }
