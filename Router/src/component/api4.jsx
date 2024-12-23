@@ -16,7 +16,7 @@ const APiFetch4 = () => {
     console.log(`>>>>>Api`,result.data);
     setData(result.data);
  }
-//  fetch()
+
 console.log(`>>>>>>>>loading>>>>>>>>`,loading);
 
  const update = async() =>{
@@ -42,8 +42,7 @@ console.log(`>>>>>>>>loading>>>>>>>>`,loading);
                 style={{ height: '100px', objectFit: 'cover' }}
               />
               <p>Region: {country.region}</p>
-              <p>Subregion: {country.subregion}</p>
-              <p>Population: {country.population}</p>
+             
             </div>
           ))
         )}

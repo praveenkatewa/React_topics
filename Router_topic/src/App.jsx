@@ -7,8 +7,10 @@ import Home from "./components/Home"
 import Calculator from "./components/calculator"
 import Form from "./components/Form"
 import Signup from "./components/Signup"
-import DisplayToggleComponent  from './components/DisplayToggleComponent'
-
+// import DisplayToggleComponent  from './components/DisplayToggleComponent'
+import Counter from './components/Counter'
+import Products from "./components/Products"
+import SpotifyRecentlyPlayed from "./components/Spotify"
 
 
 function App() {
@@ -18,10 +20,15 @@ function App() {
     <>
 <div>
      
-      <DisplayToggleComponent />
+      {/* <DisplayToggleComponent /> */}
     </div>
 
+
+    <Counter/>
+    <Products/>
+
     <BrowserRouter>
+
 
     <Header/>
      
@@ -33,6 +40,7 @@ function App() {
           <Route path="/cal" element={<Calculator/>}></Route>
           <Route path="/form" element={<Form/>}></Route>
           <Route path="/Signup" element={<Signup/>}></Route>
+          <Route path="/SpotifyRecentlyPlayed" element={<SpotifyRecentlyPlayed/>} ></Route>
           
          
 
