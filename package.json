@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "create": "^0.0.2",
-    "moment": "^2.30.1",
-    "vite": "^6.0.3"
-  }
-}
