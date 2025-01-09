@@ -1,7 +1,10 @@
-import React from "react";
-import { Form, FormControl, Button, InputGroup } from "react-bootstrap";
 
-const SearchFilter = ({ searchCriteria, setSearchCriteria }) => {
+
+import React from "react";
+import { Form, FormControl, Button, InputGroup, Badge } from "react-bootstrap";
+import { FaShoppingCart } from 'react-icons/fa'; // You can use any icon library (react-icons is recommended)
+
+const SearchFilter = ({ searchCriteria, setSearchCriteria, cart, setSelectedItem }) => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setSearchCriteria((prev) => ({ ...prev, [name]: value }));
@@ -47,23 +50,37 @@ const SearchFilter = ({ searchCriteria, setSearchCriteria }) => {
         className="me-2 mb-3 mb-md-0"
       />
 
-      {/* Discount Range */}
-      <FormControl
-        type="number"
-        name="discount"
-        placeholder="Max Discount"
-        value={searchCriteria.discount}
-        onChange={handleInputChange}
-        className="me-2 mb-3 mb-md-0"
-      />
-
+      {/* Clear Filters Button */}
       <Button 
         variant="outline-secondary" 
         onClick={() => setSearchCriteria({ title: "", category: "", price: "", discount: "" })} 
         className="mt-3 mt-md-0"
+        style={{ minWidth: "150px", padding: "10px 20px" }}
       >
         Clear Filters
       </Button>
+
+      {/* View Cart Button */}
+      <div className="cart-summary mt-3 mt-md-0 d-flex align-items-center justify-content-between">
+        <div className="d-flex align-items-center">
+          <FaShoppingCart size={24} className="me-2" />
+          <h5 className="mb-0">Cart</h5>
+          {cart.length > 0 && (
+            <Badge bg="danger" pill className="ms-2">
+              {cart.length}
+            </Badge>
+          )}
+        </div>
+        <Button 
+          variant="info" 
+          onClick={() => setSelectedItem({ cart })} 
+          style={{ padding: "8px 16px", minWidth: "120px" }}
+          className="d-flex align-items-center"
+        >
+          <i className="bi bi-cart-check me-2"></i>
+          View Cart
+        </Button>
+      </div>
     </Form>
   );
 };

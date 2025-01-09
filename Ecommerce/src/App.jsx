@@ -21,7 +21,10 @@ function App() {
 
     <BrowserRouter>
     <Routes>
+   
+
         <Route path="/" element={<MainSection />} />
+        
         <Route path="/signup" element={<Signup />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/APiFetchProduct" element={<APiFetchProduct/>}/>

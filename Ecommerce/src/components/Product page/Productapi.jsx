@@ -1,22 +1,20 @@
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Modal, Button, Container, Row, Col, Card, Spinner } from "react-bootstrap";
-import { LazyLoadImage } from "react-lazy-load-image-component";  
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "bootstrap/dist/css/bootstrap.css";
-import "react-lazy-load-image-component/src/effects/blur.css";  
+import "react-lazy-load-image-component/src/effects/blur.css";
 import './App.css';
-import SearchFilter from './SearchFilter';  
-import SortAndFilter from './SortFilter';  
-import { FaUserCircle } from "react-icons/fa";
-
-import moment from 'moment'; 
-
+import SearchFilter from './SearchFilter';
+import SortAndFilter from './SortFilter';
 
 
 const APiFetchProduct = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [cart, setCart] = useState([]);
   const [searchCriteria, setSearchCriteria] = useState({
     title: "",
     category: "",
@@ -24,15 +22,12 @@ const APiFetchProduct = () => {
     discount: "",
   });
   const [sortCriteria, setSortCriteria] = useState({
-    sortBy: "",  
-    sortDirection: "asc",  
+    sortBy: "",
+    sortDirection: "asc",
   });
-  const [priceRange, setPriceRange] = useState(""); 
+  const [priceRange, setPriceRange] = useState("");
 
-
-  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-  const loginTime = localStorage.getItem('loginTime');
-  const formattedLoginTime = moment(loginTime).format('LLLL');
+  
 
   useEffect(() => {
     ApiFetch();
@@ -47,11 +42,6 @@ const APiFetchProduct = () => {
 
   const load = () => {
     setLoading(!loading);
-  };
-
-  const details = async (id) => {
-    const result = await axios.get(`https://dummyjson.com/products/${id}`);
-    setSelectedItem(result.data);
   };
 
   const closeModal = () => {
@@ -91,7 +81,7 @@ const APiFetchProduct = () => {
     const { sortBy, sortDirection } = sortCriteria;
 
     if (sortBy === "title") {
-      return sortDirection === "asc" 
+      return sortDirection === "asc"
         ? a.title.localeCompare(b.title)
         : b.title.localeCompare(a.title);
     } else if (sortBy === "price") {
@@ -105,44 +95,40 @@ const APiFetchProduct = () => {
     }
   });
 
+  const addToCart = (item) => {
+    const newCart = [...cart];
+    const existingItem = newCart.find((product) => product.id === item.id);
+    if (existingItem) {
+      existingItem.quantity += 1; // Increase quantity if already in cart
+    } else {
+      newCart.push({ ...item, quantity: 1 }); // Add new item with quantity 1
+    }
+    setCart(newCart);
+  };
+
+  const removeFromCart = (id) => {
+    const newCart = cart.filter((item) => item.id !== id);
+    setCart(newCart);
+  };
+
   return (
     <div>
-
-
-<Container className="my-5">
-      <Row>
-        <Col md={3}>
-         
-          {loggedInUser && (
-            <Card className="mb-4">
-              <Card.Body>
-                <h5>User Info</h5>
-                <div className="d-flex align-items-center">
-                  <FaUserCircle size={50} className="me-3" />
-                  <div>
-                    <p><strong>Name:</strong> {loggedInUser.name}</p>
-                    <p><strong>Phone:</strong> {loggedInUser.phone}</p>
-                    <p><strong>Logged in at:</strong> {formattedLoginTime}</p>
-                  </div>
-                </div>
-              </Card.Body>
-            </Card>
-          )}
-        </Col>
-      </Row>
-    </Container>
-
       <Container className="mt-4">
         <h2 className="text-center">Product List</h2>
-        
-     
+
+        {/* Search Filter Section */}
         <div className="d-flex justify-content-center mb-4">
-          <SearchFilter searchCriteria={searchCriteria} setSearchCriteria={setSearchCriteria} />
+          <SearchFilter
+            searchCriteria={searchCriteria}
+            setSearchCriteria={setSearchCriteria}
+            cart={cart}
+            setSelectedItem={setSelectedItem}
+          />
         </div>
 
         <Row>
+          {/* Filter Panel */}
           <Col md={3}>
-            {/* Sort and Filter Panel */}
             <div className="filter-panel mb-4">
               <SortAndFilter
                 priceRange={priceRange}
@@ -152,6 +138,7 @@ const APiFetchProduct = () => {
             </div>
           </Col>
 
+          {/* Product Cards Section */}
           <Col md={9}>
             <div className="product-list-container">
               {loading ? (
@@ -164,19 +151,19 @@ const APiFetchProduct = () => {
                     <Col md={4} sm={6} xs={12} key={item.id} className="mb-4">
                       <Card className="product-card">
                         <LazyLoadImage
-                          effect="blur"  
-                          src={item.thumbnail}  
+                          effect="blur"
+                          src={item.thumbnail}
                           alt={item.title}
-                          className="card-img-top product-image"  
-                          loading="lazy"  
+                          className="card-img-top product-image"
+                          loading="lazy"
                         />
                         <Card.Body>
                           <Card.Title>{item.title}</Card.Title>
                           <Card.Text>Category: {item.category}</Card.Text>
                           <Card.Text>Price: ${item.price}</Card.Text>
                           <Card.Text>Discount: {item.discountPercentage}%</Card.Text>
-                          <Button variant="primary" onClick={() => details(item.id)}>
-                            View Details
+                          <Button variant="success" className="mt-2" onClick={() => addToCart(item)}>
+                            Add to Cart
                           </Button>
                         </Card.Body>
                       </Card>
@@ -188,23 +175,31 @@ const APiFetchProduct = () => {
           </Col>
         </Row>
 
-        {selectedItem && (
+        {/* Cart Modal */}
+        {selectedItem && selectedItem.cart && (
           <Modal show onHide={closeModal} centered size="lg">
             <Modal.Header closeButton>
-              <Modal.Title>{selectedItem.title}</Modal.Title>
+              <Modal.Title>Shopping Cart</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <LazyLoadImage
-                effect="blur"  
-                src={selectedItem.images[0]}  
-                alt={selectedItem.title}
-                className="img-fluid mb-3 product-modal-image" 
-                loading="lazy" 
-              />
-              <p>Category: {selectedItem.category}</p>
-              <p>Price: ${selectedItem.price}</p>
-              <p>Description: {selectedItem.description}</p>
-              <p>Rating: {selectedItem.rating}</p>
+              <div>
+                <ul>
+                  {cart.map((item) => (
+                    <li key={item.id}>
+                      <div>
+                        <h5>{item.title}</h5>
+                        <p>Quantity: {item.quantity}</p>
+                        <Button
+                          variant="danger"
+                          onClick={() => removeFromCart(item.id)}
+                        >
+                          Remove
+                        </Button>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={closeModal}>
