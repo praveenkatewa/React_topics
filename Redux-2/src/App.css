@@ -1,0 +1,118 @@
+
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+header p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+/* Button Section Styling */
+.ButtonSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: auto;
+}
+
+/* General Button Styling */
+.ButtonSection button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  margin: 10px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  width: 100%; /* Full width button */
+  max-width: 250px; /* Max width of button */
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.ButtonSection button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.ButtonSection button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Input Field Styling */
+.ButtonSection input[type="number"] {
+  width: 100%; /* Full width input */
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1.1em;
+  max-width: 250px; /* Max width of input */
+}
+
+.ButtonSection input[type="number"]::placeholder {
+  color: #888;
+}
+
+/* Flexbox layout for each section */
+.ButtonSection .button-group,
+.ButtonSection .input-group,
+.ButtonSection .reset-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* For the group with increment/decrement buttons */
+.ButtonSection .increment-decrement button {
+  width: 100%; /* Full width button */
+  max-width: 250px; /* Max width */
+  margin: 5px 0;
+}
+
+/* For the input group (Amount, Multiplier/Divider) */
+.ButtonSection .input-group input,
+.ButtonSection .input-group button {
+  width: 100%;
+  max-width: 250px; /* Max width */
+  margin: 5px 0;
+}
+
+/* Reset button section */
+.ButtonSection .reset-button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Responsive Adjustment for Small Screens */
+@media (max-width: 600px) {
+  .ButtonSection {
+    width: 90%;
+  }
+
+  .ButtonSection input[type="number"],
+  .ButtonSection button {
+    width: 90%;
+    margin: 10px auto;
+  }
+}

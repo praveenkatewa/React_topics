@@ -3,6 +3,9 @@ import {Route,Routes, useLocation} from 'react-router-dom'
 import DisplayHome from './DisplayHome'
 import DisplayAlbum from './DisplayAlbum'
 import { albumsData } from '../assets/assets'
+import FirstPage from './Login/FirstPage'
+import Signup from './Login/Signup'
+import Login from './Login/Login'
 
 const Display = () => {
   const displayRef=useRef();
@@ -26,6 +29,9 @@ const Display = () => {
   return (
     <div ref={displayRef} className='w-[100%] m-2 px-6 pt-4 rounded bg-[#121212] text-white overflow-auto lg:w[75%] lg:ml-0'>
     <Routes>
+    <Route path='/Firstpage' element={<FirstPage/>}/>
+    <Route path='/Signup' element={<Signup/>}/>
+    <Route path='/Login' element={<Login/>}/>
       <Route path='/Display' element={<DisplayHome/>}/>
       <Route path='/album/:id' element={<DisplayAlbum/>}/>
     </Routes>
@@ -35,3 +41,5 @@ const Display = () => {
 }
 
 export default Display
+
+

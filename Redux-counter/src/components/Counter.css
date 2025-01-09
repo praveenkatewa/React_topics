@@ -1,0 +1,88 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4; 
+  color: #333;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+
+.counter-container {
+  background-color: #fff; 
+  padding: 20px 30px;
+  border-radius: 10px; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  
+  text-align: center;
+  width: 300px;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.button-section {
+  display: flex;  
+  justify-content: space-between; 
+  width: 100%;  
+  margin-bottom: 20px;  
+}
+
+
+.button1 {
+  background-color: #4CAF50;  
+  color: white;  
+  border: none;
+  border-radius: 5px;  
+  padding: 10px 20px;  
+  font-size: 16px;
+  cursor: pointer;  
+  transition: background-color 0.3s ease; 
+  width: 45%; 
+}
+.button2 {
+  background-color: #d41b2e;  
+  color: white;  
+  border: none;
+  border-radius: 5px;  
+  padding: 10px 20px;  
+  font-size: 16px;
+  cursor: pointer;  
+  transition: background-color 0.3s ease; 
+  width: 45%; 
+}
+
+
+.button1:hover {
+  background-color: #b4c4b5;  
+}
+
+.button2:hover {
+  background-color: #b4c4b5;  
+}
+h1{
+ 
+  color: black;
+
+}
+
+input[type="number"] {
+  width: 100%;  /* Take up full width */
+  padding: 10px;
+  margin-bottom: 20px;  /* Space below input */
+  font-size: 1rem;
+  border: 1px solid #ccc;  /* Light border */
+  border-radius: 5px;  /* Rounded corners */
+  outline: none;  /* Remove outline */
+  transition: border-color 0.3s ease;
+}
+

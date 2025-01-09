@@ -1,6 +1,6 @@
-import React from 'react'
-import {assets} from '../assets/assets'
-import { Navigate, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { assets } from '../assets/assets';
 
 const Sidebar = () => {
 
@@ -15,10 +15,10 @@ const Navigate=useNavigate();
         <p className='font-bold'>Home</p>
       </div>
 
-      <div className='flex items-center gap-3 pl-8 cursor-pointer'>
+      {/* <div className='flex items-center gap-3 pl-8 cursor-pointer'>
         <img className='w-6' src={assets.search_icon} alt=''/>
         <p className='font-bold'>Search</p>
-      </div>
+      </div> */}
 
       </div>
       <div className='bg=[#121212] h-[85%] rounded'>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { Button, Container, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { Form, Button, Container } from 'react-bootstrap';
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -26,7 +26,7 @@ const Signup = () => {
   };
 
   return (
-    <Container className="my-5">
+    <Container className="my-3">
       <h2 className="text-center mb-4">Sign Up</h2>
       <Form onSubmit={handleSubmit}>
         {/* Name Field */}
@@ -132,3 +132,6 @@ const Signup = () => {
 };
 
 export default Signup;
+
+
+
