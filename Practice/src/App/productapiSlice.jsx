@@ -8,8 +8,11 @@ import { createSlice } from '@reduxjs/toolkit';
   },
   reducers: {
     setProducts: (state, action) => {
-      state.items = action.payload;
+      console.log(`>>>>>>>>>>state>>>>>>`,state);
+      console.log(`>>>>>>>>>>action>>>>>>`,action);
+      state.items=action.payload;
     },
+  
   },
 });
 

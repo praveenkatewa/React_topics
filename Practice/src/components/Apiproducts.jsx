@@ -5,10 +5,12 @@ const Apiproducts = () => {
   const data = useSelector((state) => state.product.items);
  
 console.log(data)
+
   return (
     <>
       <div >
-        { data.map((item) => (
+    
+        { data.length>0&&data.map((item) => (
           <div  key={item.id}>
             <div >
               <img src={item.image} alt={item.title} />
